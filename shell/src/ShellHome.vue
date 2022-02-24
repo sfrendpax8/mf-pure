@@ -1,6 +1,5 @@
 <template>
-  <router-view />
-    <div id="test"></div>
+  <p>Shell text</p>
 </template>
 
 <script setup>

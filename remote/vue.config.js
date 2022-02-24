@@ -17,7 +17,7 @@ module.exports = {
           './Test': './src/Test.vue',
         },
         // library: { type: 'var', name: 'vue3app' },
-        // shared: ['vue', 'vue-router']
+        shared: ['vue']
         // shared: require("./package.json").dependencies,
       }),
     ],

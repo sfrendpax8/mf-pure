@@ -1,8 +1,8 @@
 // const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 const { ModuleFederationPlugin } = require("webpack").container;
 
-const port = 8080;
-const projectName = 'shell';
+const port = 8083;
+const projectName = 'remoteVue2';
 
 module.exports = {
   configureWebpack: {
@@ -10,13 +10,13 @@ module.exports = {
     cache: false,
     plugins: [
       new ModuleFederationPlugin({
-        name: 'shell',
+        name: projectName,
         filename: 'remoteEntry.js',
-        remotes: {
-          remote: 'remote@http://localhost:8081/remoteEntry.js',
-          vue2: 'remoteVue2@http://localhost:8083/remoteEntry.js',
+        exposes: {
+          './vue2': './node_modules/vue/dist/vue',
+          './TestVue2': './src/views/Home.vue',
         },
-        shared: ['vue', 'vue-router']
+        // shared: ['vue', 'vue-router']
         // shared: require("./package.json").dependencies,
       }),
     ],
@@ -28,8 +28,8 @@ module.exports = {
     //   })
 
     config.optimization.delete("splitChunks");
-    // config.output.libraryTarget("umd");
   },
+
   publicPath: `http://localhost:${port}/`,
   devServer: {
     // https: false,
