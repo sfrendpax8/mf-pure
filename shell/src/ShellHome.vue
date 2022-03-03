@@ -1,10 +1,10 @@
 <template>
   <p>Shell text</p>
+  <Vue2 />
 </template>
 
 <script setup>
 
-// const asdf = import('remote/App');
-// import asdf from 'remote/App';
+import Vue2 from 'vue2/TestVue2';
 </script>
 
